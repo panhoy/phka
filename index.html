@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PHKA Cosmetics Shop - Pink Edition</title>
+    <meta name="description" content="Discover the latest in beauty with PHKA Cosmetics. Shop our new pink-themed collection and enjoy exclusive offers.">
+    <meta name="keywords" content="PHKA, Cosmetics, Beauty, Skincare, Makeup, Pink Collection">
+    <meta name="author" content="PHKA Cosmetics Team">
+    <link rel="stylesheet" href="css/phka.css">
+    <!-- Google Fonts Integration -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Including Khmer OS Siemreap, Montserrat, and Lato -->
+    <link href="https://fonts.googleapis.com/css2?family=Khmer+OS+Siemreap&family=Lato:wght@300;400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body id="top"> <!-- Add class 'dark-mode' here via JS -->
+    <!-- Fixed Header with Navigation -->
+    <header class="main-header">
+        <div class="header-content">
+            <a href="#top" class="logo-container">
+                <!-- Updated Logo Placeholder URL -->
+                <img src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/988a39be8015b30bc7ff02e941ecc35b~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=3c35d597&x-expires=1743980400&x-signature=DC4aPq5EalkZIkKyoUWBkBtPZvk%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2" alt="PHKA Cosmetics Logo" class="logo">
+                <span class="logo-text">PHKA</span>
+            </a>
+
+            <nav class="main-nav" id="main-navigation">
+                 <!-- Mobile Nav Close Button (added for slide-in menu) -->
+                <button class="close-nav-btn" aria-label="Close Navigation Menu" id="close-nav-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+                <ul>
+                    <li><a href="#top" class="nav-link active-link">Home</a></li>
+                    <li><a href="#PHKA-products" class="nav-link">PHKA</a></li>
+                    <li><a href="#skincare" class="nav-link">Skin Care</a></li>
+                    <li><a href="#feeds" class="nav-link">Feeds</a></li>
+                    <li><a href="#footer-contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                 <!-- Dark Mode Toggle Button -->
+                <button class="dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle Dark Mode">
+                    <i class="fas fa-moon"></i> <!-- Icon changes via JS/CSS -->
+                </button>
+                <button class="cart-button" aria-label="Shopping Cart" id="cart-button">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count">0</span>
+                </button>
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="main-navigation">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Shopping Cart Sidebar -->
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button class="close-cart" id="close-cart" aria-label="Close Cart">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        <div class="cart-items-container"> <!-- Added wrapper for scrolling -->
+            <div class="cart-items" id="cart-items">
+                <!-- Cart items will be added here dynamically -->
+                <div class="empty-cart">
+                    <i class="fas fa-shopping-bag"></i>
+                    <p>Your cart is empty</p>
+                    <button class="btn btn-secondary close-cart-btn">Start Shopping</button>
+                </div>
+            </div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-amount">$0.00</span> <!-- Currency Changed -->
+            </div>
+            <button class="checkout-button">Order Now</button>
+        </div>
+    </div>
+    <!-- Cart Overlay -->
+    <div class="overlay" id="cart-overlay"></div>
+
+    <!-- Banner Area (Slider) -->
+    <div class="header-banner-area">
+        <h1>PHKA NEW COLOR</h1>
+        <div class="slider-container">
+            <div class="slides" id="slides">
+                 <!-- Updated Banner Placeholders for Pink Theme -->
+                <div class="slide active"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F5.jpg&w=1080&q=100" alt="New PHKA Color Collection 1"></div>
+                <div class="slide"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F1.jpg&w=1080&q=100" alt="New Color Collection 2"></div>
+                <div class="slide"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F2.jpg&w=1080&q=100" alt="New Color Collection 3"></div>
+                <div class="slide"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F3.jpg&w=1080&q=100" alt="New Color Collection 4"></div>
+                <div class="slide"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F4.jpg&w=1080&q=100" alt="New PHKA Blush Banner"></div>
+            </div>
+            <button class="slider-nav prev-slide" id="prev-slide" aria-label="Previous slide">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="slider-nav next-slide" id="next-slide" aria-label="Next slide">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        <div class="banner-dots" id="banner-dots">
+            <!-- Dots generated by JS -->
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Featured Products -->
+        <section class="featured-section">
+            <h2 class="section-subtitle">Featured Products</h2>
+            <div class="featured-products">
+                <div class="featured-product">
+                    <div class="featured-info">
+                        <h3>Summer Collection</h3>
+                        <p>Discover our light and refreshing cosmetics for the summer season</p>
+                        <a href="#PHKA-products" class="featured-button btn">Shop Now</a> <!-- Added btn class -->
+                    </div>
+                    <div class="featured-image">
+                        <!-- Updated Featured Product Placeholder -->
+                        <img src="https://pichpisey.shop/_next/image?url=%2Fimages%2Fphkanewblush-banner.jpg&w=828&q=75" alt="Summer Collection" loading="lazy">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PHKA Products Section -->
+        <section id="PHKA-products" class="page-section">
+            <h2 class="section-title">PHKA</h2>
+            <div class="product-grid" id="phka-products-grid">
+                <!-- Products will be added dynamically -->
+                 <p class="loading-text">Loading PHKA products...</p>
+            </div>
+        </section>
+
+        <!-- Skin Care Section -->
+        <section id="skincare" class="page-section">
+            <h2 class="section-title">Skin Care</h2>
+            <div class="product-grid" id="skincare-products-grid">
+                <!-- Products will be added dynamically -->
+                 <p class="loading-text">Loading Skincare products...</p>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section">
+            <h2 class="section-title">ADMIN</h2>
+            <div class="testimonials-container" id="testimonials-container">
+                <!-- Testimonials will be added dynamically -->
+                 <p class="loading-text">Loading reviews...</p>
+            </div>
+        </section>
+
+        <!-- Feeds Section -->
+        <section id="feeds" class="page-section feeds-section">
+            <h2 class="section-title">Instagram Feeds</h2>
+            <div class="feeds-grid" id="feeds-grid">
+                <!-- Feeds will be added dynamically -->
+                 <p class="loading-text">Loading feeds...</p>
+            </div>
+            <div class="instagram-link">
+                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn">
+                    <i class="fab fa-instagram"></i> Follow us on Instagram
+                </a>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section">
+            <div class="newsletter-content">
+                <h2>Join Our Newsletter</h2>
+                <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
+                <form class="newsletter-form" id="newsletter-form">
+                    <input type="email" placeholder="Your email address" required aria-label="Email address">
+                    <button type="submit" class="btn">Subscribe</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="footer-contact">
+        <div class="footer-content">
+            <div class="footer-section about-section">
+                 <!-- Footer Logo -->
+                <a href="#top" class="footer-logo-container">
+                    <!-- Updated Footer Logo Placeholder URL -->
+                     <img src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/988a39be8015b30bc7ff02e941ecc35b~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=5aeef5bd&x-expires=1744012800&x-signature=khSO%2BcpTGGz5WXlbcM6BKNIh5v0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my" alt="PHKA Cosmetics Logo" class="footer-logo">
+                     <span class="footer-logo-text">PHKA</span>
+                 </a>
+                <p>PHKA Cosmetics offers high-quality beauty products designed to enhance your natural beauty with safe ingredients.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#top">Home</a></li>
+                    <li><a href="#PHKA-products">Products</a></li>
+                    <li><a href="#skincare">Skin Care</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact-section">
+                <h3>Contact Us</h3>
+                <ul class="contact-info">
+                    <li><i class="fas fa-map-marker-alt"></i> <span>123 Beauty Street, Bangkok, Thailand</span></li>
+                    <li><i class="fas fa-phone"></i> <span>+66 2 123 4567</span></li>
+                    <li><i class="fas fa-envelope"></i> <span>contact@phkacosmetics.com</span></li>
+                </ul>
+            </div>
+             <div class="footer-section language-section">
+                 <h3>Language</h3>
+                 <div class="language-selector">
+                    <a href="#" class="active" lang="en">English</a>
+                    <a href="#" lang="th">ไทย</a> <!-- Added lang attribute for potential future use -->
+                    <a href="#" lang="km">ខ្មែរ</a> <!-- Added Khmer option with lang attribute -->
+                </div>
+             </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; <span id="current-year"></span> PHKA Cosmetics. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#top" class="back-to-top" id="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- Product Quick View Modal -->
+    <div class="modal-overlay" id="modal-overlay"></div>
+    <div class="modal" id="quick-view-modal">
+        <div class="modal-content">
+            <button class="close-modal" id="close-modal" aria-label="Close Quick View">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="product-quick-view" id="product-quick-view">
+                <!-- Product details will be added dynamically -->
+                <p class="loading-text">Loading product details...</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="notification-toast" id="notification-toast" role="alert" aria-live="assertive">
+        <div class="notification-content">
+            <i class="fas fa-check-circle notification-icon"></i> <!-- Icon class might change -->
+            <span id="notification-message">Notification message here</span>
+        </div>
+         <button class="close-toast" id="close-toast" aria-label="Dismiss Notification">&times;</button>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/phka.js" type="module"></script> <!-- Updated JS file path -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script> <!-- Axios for API calls -->
+</body>
+</html>
