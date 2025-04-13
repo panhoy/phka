@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHKA Cosmetics Shop - Pink Edition</title>
     <meta name="description" content="Discover the latest in beauty with PHKA Cosmetics. Shop our new pink-themed collection and enjoy exclusive offers.">
-    <meta name="keywords" content="PHKA, Cosmetics, Beauty, Skincare, Makeup, Pink Collection">
+    <meta name="keywords" content="PHKA, Cosmetics, Beauty, Skincare, Makeup, Pink Collection, គ្រឿងសំអាង"> <!-- Added Khmer keyword -->
     <meta name="author" content="PHKA Cosmetics Team">
-    <link rel="stylesheet" href="css/phka.css">
     <!-- Google Fonts Integration -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,6 +14,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Khmer+OS+Siemreap&family=Lato:wght@300;400;700&family=Montserrat:wght@500;700&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/phka.css"> <!-- Main CSS file -->
 </head>
 <body id="top"> <!-- Add class 'dark-mode' here via JS -->
     <!-- Fixed Header with Navigation -->
@@ -22,7 +22,7 @@
         <div class="header-content">
             <a href="#top" class="logo-container">
                 <!-- Updated Logo Placeholder URL -->
-                <img src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/988a39be8015b30bc7ff02e941ecc35b~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=3c35d597&x-expires=1743980400&x-signature=DC4aPq5EalkZIkKyoUWBkBtPZvk%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2" alt="PHKA Cosmetics Logo" class="logo">
+                <img src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/988a39be8015b30bc7ff02e941ecc35b~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=c666d0b3&x-expires=1744671600&x-signature=p2KdckgWNAqoLQby5J6lRx0Z4FE%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my2" alt="PHKA Cosmetics Logo" class="logo" loading="lazy">
                 <span class="logo-text">PHKA</span>
             </a>
 
@@ -45,11 +45,12 @@
                 <button class="dark-mode-toggle" id="dark-mode-toggle" aria-label="Toggle Dark Mode">
                     <i class="fas fa-moon"></i> <!-- Icon changes via JS/CSS -->
                 </button>
-                <button class="cart-button" aria-label="Shopping Cart" id="cart-button">
+                <button class="cart-button" aria-label="Open Shopping Cart" id="cart-button">
                     <i class="fas fa-shopping-bag"></i>
                     <span class="cart-count">0</span>
                 </button>
-                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation" aria-expanded="false" aria-controls="main-navigation">
+                <!-- Burger Menu Toggle Button -->
+                <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu" aria-expanded="false" aria-controls="main-navigation">
                     <span class="bar"></span>
                     <span class="bar"></span>
                     <span class="bar"></span>
@@ -59,9 +60,9 @@
     </header>
 
     <!-- Shopping Cart Sidebar -->
-    <div class="cart-sidebar" id="cart-sidebar">
+    <div class="cart-sidebar" id="cart-sidebar" aria-labelledby="cart-heading">
         <div class="cart-header">
-            <h3>Your Cart</h3>
+            <h3 id="cart-heading">Your Cart</h3>
             <button class="close-cart" id="close-cart" aria-label="Close Cart">
                 <i class="fas fa-times"></i>
             </button>
@@ -76,15 +77,27 @@
                 </div>
             </div>
         </div>
+
         <div class="cart-footer">
             <div class="cart-total">
                 <span>Total:</span>
-                <span id="cart-total-amount">$0.00</span> <!-- Currency Changed -->
+                <span id="cart-total-amount">$0.00</span>
             </div>
-            <button class="checkout-button">Order Now</button>
+
+            <!-- User Info Inputs -->
+            <div class="cart-user-info">
+                <label for="cart-location" class="sr-only">ទីតាំង (Location)</label>
+                <input type="text" id="cart-location" placeholder="ទីតាំង (Location)" required aria-required="true">
+
+                <label for="cart-phone" class="sr-only">Phone Number</label>
+                <input type="tel" id="cart-phone" placeholder="Phone Number" required aria-required="true" pattern="[0-9\s\-+()]*"> <!-- Basic pattern for phone -->
+            </div>
+            <!-- End User Info Inputs -->
+
+            <button class="checkout-button" id="checkout-qr-button" disabled>QR</button> <!-- Starts disabled -->
         </div>
     </div>
-    <!-- Cart Overlay -->
+    <!-- Cart/Nav Overlay -->
     <div class="overlay" id="cart-overlay"></div>
 
     <!-- Banner Area (Slider) -->
@@ -93,11 +106,11 @@
         <div class="slider-container">
             <div class="slides" id="slides">
                  <!-- Updated Banner Placeholders for Pink Theme -->
-                <div class="slide active"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F5.jpg&w=1080&q=100" alt="New PHKA Color Collection 1"></div>
-                <div class="slide"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F1.jpg&w=1080&q=100" alt="New Color Collection 2"></div>
-                <div class="slide"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F2.jpg&w=1080&q=100" alt="New Color Collection 3"></div>
-                <div class="slide"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F3.jpg&w=1080&q=100" alt="New Color Collection 4"></div>
-                <div class="slide"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F4.jpg&w=1080&q=100" alt="New PHKA Blush Banner"></div>
+                <div class="slide active"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F5.jpg&w=1080&q=100" alt="New PHKA Color Collection 1" loading="lazy"></div>
+                <div class="slide"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F3.jpg&w=1080&q=100" alt="New Color Collection 2" loading="lazy"></div>
+                <div class="slide"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F2.jpg&w=1080&q=100" alt="New Color Collection 3" loading="lazy"></div>
+                <div class="slide"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F3.jpg&w=1080&q=100" alt="New Color Collection 4" loading="lazy"></div>
+                <div class="slide"><img src="https://pichpisey.shop/_next/image?url=%2Fimages%2FHero%2F4.jpg&w=1080&q=100" alt="New PHKA Blush Banner" loading="lazy"></div>
             </div>
             <button class="slider-nav prev-slide" id="prev-slide" aria-label="Previous slide">
                 <i class="fas fa-chevron-left"></i>
@@ -106,7 +119,7 @@
                 <i class="fas fa-chevron-right"></i>
             </button>
         </div>
-        <div class="banner-dots" id="banner-dots">
+        <div class="banner-dots" id="banner-dots" role="tablist" aria-label="Slideshow controls">
             <!-- Dots generated by JS -->
         </div>
     </div>
@@ -114,8 +127,8 @@
     <!-- Main Content -->
     <main class="main-content">
         <!-- Featured Products -->
-        <section class="featured-section">
-            <h2 class="section-subtitle">Featured Products</h2>
+        <section class="featured-section" aria-labelledby="featured-heading">
+            <h2 id="featured-heading" class="section-subtitle">Featured Products</h2>
             <div class="featured-products">
                 <div class="featured-product">
                     <div class="featured-info">
@@ -125,15 +138,15 @@
                     </div>
                     <div class="featured-image">
                         <!-- Updated Featured Product Placeholder -->
-                        <img src="https://pichpisey.shop/_next/image?url=%2Fimages%2Fphkanewblush-banner.jpg&w=828&q=75" alt="Summer Collection" loading="lazy">
+                        <img src="https://pichpisey.shop/_next/image?url=%2Fimages%2Fphkanewblush-banner.jpg&w=828&q=75" alt="Summer Collection Banner" loading="lazy">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- PHKA Products Section -->
-        <section id="PHKA-products" class="page-section">
-            <h2 class="section-title">PHKA</h2>
+        <section id="PHKA-products" class="page-section" aria-labelledby="phka-heading">
+            <h2 id="phka-heading" class="section-title">PHKA</h2>
             <div class="product-grid" id="phka-products-grid">
                 <!-- Products will be added dynamically -->
                  <p class="loading-text">Loading PHKA products...</p>
@@ -141,8 +154,8 @@
         </section>
 
         <!-- Skin Care Section -->
-        <section id="skincare" class="page-section">
-            <h2 class="section-title">Skin Care</h2>
+        <section id="skincare" class="page-section" aria-labelledby="skincare-heading">
+            <h2 id="skincare-heading" class="section-title">Skin Care</h2>
             <div class="product-grid" id="skincare-products-grid">
                 <!-- Products will be added dynamically -->
                  <p class="loading-text">Loading Skincare products...</p>
@@ -150,8 +163,8 @@
         </section>
 
         <!-- Testimonials Section -->
-        <section class="testimonials-section">
-            <h2 class="section-title">ADMIN</h2>
+        <section class="testimonials-section" aria-labelledby="testimonials-heading">
+            <h2 id="testimonials-heading" class="section-title">ADMIN</h2>
             <div class="testimonials-container" id="testimonials-container">
                 <!-- Testimonials will be added dynamically -->
                  <p class="loading-text">Loading reviews...</p>
@@ -159,26 +172,27 @@
         </section>
 
         <!-- Feeds Section -->
-        <section id="feeds" class="page-section feeds-section">
-            <h2 class="section-title">Instagram Feeds</h2>
+        <section id="feeds" class="page-section feeds-section" aria-labelledby="feeds-heading">
+            <h2 id="feeds-heading" class="section-title">Instagram Feeds</h2>
             <div class="feeds-grid" id="feeds-grid">
                 <!-- Feeds will be added dynamically -->
                  <p class="loading-text">Loading feeds...</p>
             </div>
             <div class="instagram-link">
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="btn">
+                <a href="https://instagram.com/phka_cosmetics" target="_blank" rel="noopener noreferrer" class="btn"> <!-- Added placeholder link -->
                     <i class="fab fa-instagram"></i> Follow us on Instagram
                 </a>
             </div>
         </section>
 
         <!-- Newsletter Section -->
-        <section class="newsletter-section">
+        <section class="newsletter-section" aria-labelledby="newsletter-heading">
             <div class="newsletter-content">
-                <h2>Join Our Newsletter</h2>
+                <h2 id="newsletter-heading">Join Our Newsletter</h2>
                 <p>Subscribe to get special offers, free giveaways, and once-in-a-lifetime deals.</p>
                 <form class="newsletter-form" id="newsletter-form">
-                    <input type="email" placeholder="Your email address" required aria-label="Email address">
+                     <label for="newsletter-email" class="sr-only">Email address</label>
+                    <input type="email" id="newsletter-email" placeholder="Your email address" required aria-required="true">
                     <button type="submit" class="btn">Subscribe</button>
                 </form>
             </div>
@@ -191,16 +205,15 @@
             <div class="footer-section about-section">
                  <!-- Footer Logo -->
                 <a href="#top" class="footer-logo-container">
-                    <!-- Updated Footer Logo Placeholder URL -->
-                     <img src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/988a39be8015b30bc7ff02e941ecc35b~tplv-tiktokx-cropcenter:1080:1080.jpeg?dr=14579&refresh_token=5aeef5bd&x-expires=1744012800&x-signature=khSO%2BcpTGGz5WXlbcM6BKNIh5v0%3D&t=4d5b0474&ps=13740610&shp=a5d48078&shcp=81f88b70&idc=my" alt="PHKA Cosmetics Logo" class="footer-logo">
+                     <img src="https://p16-sign-sg.tiktokcdn.com/tos-alisg-avt-0068/988a39be8015b30bc7ff02e941ecc35b~tplv-tiktokx-cropcenter:1080:1080.jpeg?lk3s=a5d48078&x-expires=1744160400&x-signature=0l%2B18%2F8bUa0M09QnB3F%2FF9Jv7Uo%3D" alt="PHKA Cosmetics Logo" class="footer-logo" loading="lazy">
                      <span class="footer-logo-text">PHKA</span>
                  </a>
                 <p>PHKA Cosmetics offers high-quality beauty products designed to enhance your natural beauty with safe ingredients.</p>
                 <div class="social-links">
-                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://instagram.com/phka_cosmetics" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                 </div>
             </div>
             <div class="footer-section links-section">
@@ -209,16 +222,16 @@
                     <li><a href="#top">Home</a></li>
                     <li><a href="#PHKA-products">Products</a></li>
                     <li><a href="#skincare">Skin Care</a></li>
-                    <li><a href="#">About Us</a></li>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">About Us</a></li> <!-- Placeholder Link -->
+                    <li><a href="#">FAQ</a></li> <!-- Placeholder Link -->
+                    <li><a href="#">Privacy Policy</a></li> <!-- Placeholder Link -->
                 </ul>
             </div>
             <div class="footer-section contact-section">
                 <h3>Contact Us</h3>
                 <ul class="contact-info">
-                    <li><i class="fas fa-map-marker-alt"></i> <span>123 Beauty Street, Bangkok, Thailand</span></li>
-                    <li><i class="fas fa-phone"></i> <span>+66 2 123 4567</span></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <span>123 Beauty Street, Phnom Penh, Cambodia</span></li>
+                    <li><i class="fas fa-phone"></i> <span>+855 12 345 678</span></li>
                     <li><i class="fas fa-envelope"></i> <span>contact@phkacosmetics.com</span></li>
                 </ul>
             </div>
@@ -226,8 +239,8 @@
                  <h3>Language</h3>
                  <div class="language-selector">
                     <a href="#" class="active" lang="en">English</a>
-                    <a href="#" lang="th">ไทย</a> <!-- Added lang attribute for potential future use -->
-                    <a href="#" lang="km">ខ្មែរ</a> <!-- Added Khmer option with lang attribute -->
+                    <a href="#" lang="th">ไทย</a> <!-- Added lang attribute -->
+                    <a href="#" lang="km">ខ្មែរ</a> <!-- Added lang attribute -->
                 </div>
              </div>
         </div>
@@ -243,11 +256,13 @@
 
     <!-- Product Quick View Modal -->
     <div class="modal-overlay" id="modal-overlay"></div>
-    <div class="modal" id="quick-view-modal">
+    <div class="modal" id="quick-view-modal" role="dialog" aria-modal="true" aria-labelledby="quick-view-heading">
         <div class="modal-content">
             <button class="close-modal" id="close-modal" aria-label="Close Quick View">
                 <i class="fas fa-times"></i>
             </button>
+             <!-- Heading added for accessibility -->
+            <h2 id="quick-view-heading" class="sr-only">Product Quick View</h2>
             <div class="product-quick-view" id="product-quick-view">
                 <!-- Product details will be added dynamically -->
                 <p class="loading-text">Loading product details...</p>
@@ -258,14 +273,13 @@
     <!-- Notification Toast -->
     <div class="notification-toast" id="notification-toast" role="alert" aria-live="assertive">
         <div class="notification-content">
-            <i class="fas fa-check-circle notification-icon"></i> <!-- Icon class might change -->
+            <i class="fas fa-check-circle notification-icon" aria-hidden="true"></i> <!-- Icon class might change -->
             <span id="notification-message">Notification message here</span>
         </div>
          <button class="close-toast" id="close-toast" aria-label="Dismiss Notification">&times;</button>
     </div>
 
-    <!-- Scripts -->
-    <script src="js/phka.js" type="module"></script> <!-- Updated JS file path -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script> <!-- Axios for API calls -->
+    <script src="js/phka.js"></script>
+
 </body>
 </html>
